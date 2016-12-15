@@ -1,0 +1,13 @@
+
+	Global Moran I for regression residuals
+
+data:  
+model: lm(formula = model_formula, data = county_map@data)
+weights: county_map.listw
+
+Moran I statistic standard deviate = -3.4363e-07, p-value = 0.5
+alternative hypothesis: greater
+sample estimates:
+Observed Moran I      Expectation         Variance 
+   -7.487787e-01    -7.487787e-01     1.783151e-11 
+

@@ -1,0 +1,26 @@
+
+Call: 
+spautolm(formula = model_formula, data = county_map@data, listw = county_map.listw, 
+    family = "SAR")
+
+Residuals:
+        Min          1Q      Median          3Q         Max 
+-3.4365e-09 -2.4603e-09  4.1101e-10  4.4191e-10  6.8040e-09 
+
+Coefficients: 
+                            Estimate  Std. Error    z value  Pr(>|z|)
+(Intercept)               4.5347e+01  3.8563e-07  117591751 < 2.2e-16
+meanNDVI                 -5.7499e+01  5.8303e-07  -98620954 < 2.2e-16
+PrecipAmount_mm_DailySum  3.8053e+00  2.1057e-08  180711840 < 2.2e-16
+Windspeed_ms_DailyAvg    -2.0953e+00  1.2895e-08 -162485879 < 2.2e-16
+planted                   3.4264e-05  1.5125e-13  226532815 < 2.2e-16
+
+Lambda: -1.0731 LR test value: 171.22 p-value: < 2.22e-16 
+Numerical Hessian standard error of lambda: NaN 
+
+Log likelihood: 88.9529 
+ML residual variance (sigma squared): 1.8627e-17, (sigma: 4.3159e-09)
+Number of observations: 6 
+Number of parameters estimated: 7 
+AIC: -163.91
+
