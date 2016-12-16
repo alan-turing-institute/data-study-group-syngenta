@@ -1,6 +1,6 @@
 #This code was created by Chanuki Seresinhe (cseresinhe@turing.ac.uk) during the Data Study Group held at the Alan Turing Institute in 2016. As this code was written in a rush, please audit this code before using it!
 
-setwd("/Volumes/Chanuki_Data_Files/Sygenta/")
+setwd("/Volumes/Chanuki_Data_Files/Sygenta/California-Counties")
 library(rgdal)
 library(raster)
 
@@ -13,7 +13,7 @@ counties <- c("fresno","kern","madera","merced","sanjoaquin","stanislaus","tular
 for (county in counties){
 
 
-county_map <- readOGR(dsn = "Kings-California/Kings-map", layer = "kings2012")
+county_map <- readOGR(dsn = "CA_maps", layer = "kings2012")
 #head(county_map@data)
 #table(county_map@data$polygon_ty)
 
@@ -25,7 +25,7 @@ county_map <- readOGR(dsn = "Kings-California/Kings-map", layer = "kings2012")
 farm_codes <- c("P","U","S","L")
 
 kings_farm_map <- kings_map[kings_map@data$polygon_ty %in% farm_codes,]
-writeOGR(kings_farm_map,"Kings-California/Kings-map","kings2012-farm","ESRI Shapefile")
+writeOGR(kings_farm_map,"CA_maps","kings2012-farm","ESRI Shapefile")
 
 
 }
@@ -36,7 +36,7 @@ writeOGR(kings_farm_map,"Kings-California/Kings-map","kings2012-farm","ESRI Shap
 
 #Read in data from VegScape GeoTiffs
 
-Kings_NDVI_Tifs <- list.files("data/kings_NDVI_DATA_CACHED",
+Kings_NDVI_Tifs <- list.files("data/kings_NDVI_DATA_CACHE",
                             full.names = TRUE,
                             pattern = ".tif$")
 
@@ -47,7 +47,7 @@ Kings_NDVI_stack <- stack(Kings_NDVI_Tifs)
 plot(Kings_NDVI_stack[[1:4]], 
      nc = 4)
 
-#Note that cells which shouldn't be coloured in are. These are the areas which were outside the Farm shapefile. These need to be set to NA
+#Note that cells which shouldn't be coloured in are currently green. These are the areas which were outside the Farm shapefile. These need to be set to NA
 
 #We could run this but it seems to require a lot of RAM:
 #Kings_NDVI_stack[ Kings_NDVI_stack[] ==255 ] <- NA  #Note that this process take a lot of time!
@@ -92,7 +92,7 @@ for (i in 1:255){
 }
 }
 
-save.image("kings.Rdata")
+
 plot(Kings_NDVI_stack[[326]])
 
 
