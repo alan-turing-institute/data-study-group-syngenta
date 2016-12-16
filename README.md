@@ -1,5 +1,5 @@
 # Code for Spatial Regression Model for the 2016 Alan Turing Institute Data Study Group for Syngenta
-As this code was written in a rush, please audit this code before using it.
+As this code was written in a rush, so please audit this code before using it! 
 
 Yield data on grain corn is from https://www.nass.usda.gov/Quick_Stats/.
 
